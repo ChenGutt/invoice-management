@@ -1,0 +1,13 @@
+.btn-success{
+    background: rgb(89 160 64 / 87%) !important;
+}
+
+.width{
+    width: 30vw !important;
+}
+
+@media screen and (max-width:768px) {
+    .width{
+        width: 80vw !important;
+    }
+}

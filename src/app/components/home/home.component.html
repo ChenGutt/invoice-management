@@ -1,0 +1,59 @@
+<div class="file-upload col-lg-4 col-xs-12 mx-auto p-2" *ngIf="!parsingDocument && !file">
+
+    <div class="form-group">
+        <label for="template">Template</label>
+        <select name="template" class="form-select" [(ngModel)]="templateChosen">
+            <option [value]="template" *ngFor="let template of templates">{{template.includes("_") ?
+                template.replace("_", " ") : template}}</option>
+        </select>
+        <small id="templateHelp" class=" text-muted">Optional template to improve parsing quality
+        </small>
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="template">Image or PDF</label>
+        <div>
+            <label for="browseFile"></label>
+            <input id="browseFile" type="file" class="form-control" name="document" (change)="onFileSelected($event)"
+                multiple>
+        </div>
+        <small class="form-text text-muted">Select a image or PDF file. The file must be
+            smaller than 10MB.
+        </small>
+        <br />
+        <div class="choose-processing mt-3">
+            <div class="radio-select-processing">
+                <input type="radio" value="full" class="form-check-input" checked [(ngModel)]="textExtraction">
+                <label for="pdf_text_extraction_full">Full processing
+                    <br><small class="form-text text-muted">Use for the best parsing quality</small>
+                </label>
+            </div>
+
+            <div class="radio-select-processing">
+                <input type="radio" value="fast" class="form-check-input" [(ngModel)]="textExtraction">
+                <label>Fast processing (PDF
+                    files only)
+                    <br><small class="form-text text-muted">Tries to extract the selectable text from PDF files.
+                        Processes the document as 'full' for images</small>
+                </label>
+            </div>
+
+            <small class="form-text text-muted">
+                Use full when you want the best quality scan, use fast when you want fast scan results. Fast
+                will try to extract the text from the PDF. Full will actually scan the full PDF, which is
+                slower. Speed difference: full: ~5s, fast: 2.5~. When a PDF does not contain text, such as
+                scans of documents and pictures, we will automatically use full for that request. This value
+                is ignored for non-PDF requests.
+            </small>
+
+        </div>
+    </div>
+    <button class="btn btn-success btn-block my-4 w-100" (click)="onFileUpload()">Process
+        file</button>
+</div>
+
+<div class="d-flex flex-column align-items-center" *ngIf="parsingDocument">
+    <p>Parsing document...</p>
+    <div class="loader"></div>
+</div>
+<app-file [parsedFile]='file' *ngIf="file"></app-file>

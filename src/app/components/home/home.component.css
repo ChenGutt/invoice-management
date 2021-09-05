@@ -1,0 +1,49 @@
+.btn-success{
+    background: rgb(89 160 64 / 87%) !important;
+}
+
+label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+
+.radio-select-processing {
+    display: flex;
+}
+.radio-select-processing input{
+    margin-top: 0.3rem;
+}
+
+.radio-select-processing label{
+    margin-left: 1rem;
+}
+
+.form-check-input:checked{
+    background-color:rgb(89 160 64 / 87%) !important;
+    border:0 !important;
+}
+
+select,option{
+    text-transform: capitalize;
+}
+
+small {
+    font-size: 0.8rem;
+}
+
+.loader{
+    width: 4rem;
+    height: 4rem;
+    border: 0.5rem solid #ccc;
+    border-top:0.5rem solid rgb(89 160 64 / 87%);
+    border-radius: 50%;
+    animation: loading 2s linear infinite; 
+}
+
+@keyframes loading {
+    to {
+        transform: rotate(360deg)
+    }
+}
+

@@ -1,0 +1,27 @@
+table{
+    border: 1px solid black;
+    border-spacing: 2px;
+}
+
+tr{
+    display:table-row;
+    width:100%;
+}
+
+td{
+
+    border: 1px solid black;
+    padding:5px 10px;
+    font-size: 0.8rem;
+}
+
+pre{
+    font-size: 10px;
+}
+
+@media screen and (max-width:992px){
+    .file-container{
+        display: flex;
+        flex-direction: column;
+    }
+}

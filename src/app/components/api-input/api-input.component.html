@@ -1,0 +1,13 @@
+<div class="api-key">
+
+    <div class="width mx-auto my-3 text-center">
+        <label>API Key</label>
+        <input type="text" class="form-control mt-3" placeholder="Enter API key" [(ngModel)]="apiKeyInput">
+
+        <div class="error" *ngIf="showError" class="text-danger">
+            <small>incorrect key</small>
+        </div>
+        <button type="button" class="btn btn-success btn-block my-4 w-100" (click)="onApiKeyInsert()">Continue</button>
+    </div>
+
+</div>

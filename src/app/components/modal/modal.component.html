@@ -1,0 +1,9 @@
+<div class="backdrop">
+    <div class="modal">
+        <div class="close-modal" (click)="closeModal()">X</div>
+        <hr>
+        <pre *ngIf="pickedDocument !== undefined">
+          {{this.pickedDocument.raw_text}}
+        </pre>
+    </div>
+</div>

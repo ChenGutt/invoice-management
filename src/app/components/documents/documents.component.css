@@ -1,0 +1,13 @@
+.cursor{
+    cursor: pointer;
+}
+
+.fa-eye,.fa-download{
+    color:black;
+    transition: all .3s ease-in-out;
+}
+
+.fa-eye:hover,.fa-download:hover{
+    color: rgb(89 160 64 / 87%);
+    transform:scale(1.1);
+}

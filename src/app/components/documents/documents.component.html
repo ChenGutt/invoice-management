@@ -1,0 +1,26 @@
+<app-modal *ngIf="showFileModal" [pickedDocument]="pickedDocument" (onModalClose)="onModalClose()"></app-modal>
+<div class="table-responsive text-center">
+    <h4>Previously uploaded files </h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Type</th>
+                <th>Merchant</th>
+                <th>Download json/View</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let file of files ; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{file.document_type}}</td>
+                <td>{{file.merchant_name}}</td>
+                <td><a [href]="downloadJsonHref" download="invoice.json" (click)="generateDownloadJsonUri(i)"><i
+                            class="fas fa-download mx-5"></i></a>
+                    <a (click)="openModalHandler(i)"><i class="fas fa-eye cursor"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
