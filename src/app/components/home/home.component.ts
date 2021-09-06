@@ -58,8 +58,7 @@ export class HomeComponent implements OnInit {
     fd.append('pdf_text_extraction', this.textExtraction);
     fd.append('template', this.templateChosen);
     this.apiService.parseDocument('https://custom-ocr.klippa.com/api/v1/parseDocument', fd, { headers: xAuth }).subscribe(res => {
-      this.file = plainToClass(JsonModel, res)
-      console.log(this.file)
+      this.file = res;
       this.userFiles.push(this.file)
       this.saveToLocalStorage()
       this.parsingDocument = false
