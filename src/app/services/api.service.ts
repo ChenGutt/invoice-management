@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+  import { map, filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,8 @@ export class ApiService {
   }
 
   parseDocument(url: string, body: FormData, options: Object): Observable<any> {
-    return this.http.post(url, body, options)
-
+    return this.http.post(url, body, options).pipe(map(data => {
+      return data["data"]["parsed"]
+    }))
   }
 }

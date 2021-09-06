@@ -2,6 +2,8 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { JsonModel } from 'src/models/json.model';
+import { plainToClass } from "class-transformer";
 
 @Component({
   selector: 'app-home',
@@ -56,7 +58,8 @@ export class HomeComponent implements OnInit {
     fd.append('pdf_text_extraction', this.textExtraction);
     fd.append('template', this.templateChosen);
     this.apiService.parseDocument('https://custom-ocr.klippa.com/api/v1/parseDocument', fd, { headers: xAuth }).subscribe(res => {
-      this.file = res["data"]["parsed"];
+      this.file = plainToClass(JsonModel, res)
+      console.log(this.file)
       this.userFiles.push(this.file)
       this.saveToLocalStorage()
       this.parsingDocument = false
