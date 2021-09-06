@@ -1,9 +1,6 @@
-
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { JsonModel } from 'src/models/json.model';
-import { plainToClass } from "class-transformer";
 
 @Component({
   selector: 'app-home',
